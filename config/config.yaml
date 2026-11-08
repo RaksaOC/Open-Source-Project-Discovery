@@ -1,0 +1,64 @@
+# Project settings. Values marked TBD are decided once we look at the data.
+
+paths:
+  raw: data/raw                 # API responses as JSON lines
+  processed: data/processed     # cleaned corpus (parquet)
+  index: data/index             # inverted index, TF-IDF matrix, FAISS index, graph
+  eval: eval
+
+collection:
+  target_size: 10000            # repositories in the corpus
+  min_stars: 5                  # TBD: low enough to keep small beginner projects
+  require_readme: true
+  english_only: true
+  per_query_cap: 1000           # GitHub search returns at most 1,000 results per query
+  # The search API caps results, so we slice the corpus into many small queries:
+  # (application domain) x (framework or language), split further by star range if needed.
+  domains:
+    - inventory management
+    - point of sale
+    - e-commerce
+    - blog
+    - chat application
+    - todo
+    - school management
+    - hospital management
+    - library management
+    - booking system
+    - crm
+    - portfolio
+  frameworks:
+    - nestjs
+    - express
+    - django
+    - flask
+    - fastapi
+    - laravel
+    - spring-boot
+    - rails
+    - react
+    - vue
+    - nextjs
+    - flutter
+
+preprocessing:
+  readme_max_chars: 20000       # TBD
+  keep_terms: technologies.yaml # tech names are never stemmed or split ("node.js", "c#")
+
+ranking:
+  default_method: bm25          # boolean | tfidf | bm25 | embedding | hybrid
+  bm25: {k1: 1.5, b: 0.75}      # TBD: tune on the evaluation queries
+  embedding_model: sentence-transformers/all-MiniLM-L6-v2   # TBD
+  hybrid_alpha: 0.5             # weight of BM25 vs embeddings, TBD
+
+popularity:
+  # final score = relevance_weight * relevance + (1 - relevance_weight) * popularity
+  relevance_weight: 0.8         # TBD
+  weights: {stars: 0.4, forks: 0.2, pagerank: 0.4}   # TBD
+  graph_edges: [shared_contributor, shared_topic, fork_of, readme_link]   # TBD
+
+evaluation:
+  num_queries: 25
+  pool_depth: 10                # top-k from every method goes to the labelling pool
+  relevance_scale: {0: not relevant, 1: partly relevant, 2: relevant}
+  cutoffs: [5, 10]

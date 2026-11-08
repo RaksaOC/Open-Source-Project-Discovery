@@ -1,0 +1,17 @@
+[
+  {"id": "q01", "query": "Find a beginner-friendly inventory management system using NestJS and PostgreSQL"},
+  {"id": "q02", "query": "simple point of sale app for a small shop with React and Express"},
+  {"id": "q03", "query": "school management system with student attendance and grades in Laravel"},
+  {"id": "q04", "query": "real-time chat application using Socket.IO and MongoDB"},
+  {"id": "q05", "query": "e-commerce backend with payments and an admin dashboard in Django"},
+  {"id": "q06", "query": "hotel or room booking system built with Spring Boot and MySQL"},
+  {"id": "q07", "query": "personal blog starter with Markdown posts using Next.js"},
+  {"id": "q08", "query": "hospital management system for patients and appointments"},
+  {"id": "q09", "query": "REST API boilerplate with JWT authentication in FastAPI"},
+  {"id": "q10", "query": "library management system for a student project in Java"},
+  {"id": "q11", "query": "TBD"}, {"id": "q12", "query": "TBD"}, {"id": "q13", "query": "TBD"},
+  {"id": "q14", "query": "TBD"}, {"id": "q15", "query": "TBD"}, {"id": "q16", "query": "TBD"},
+  {"id": "q17", "query": "TBD"}, {"id": "q18", "query": "TBD"}, {"id": "q19", "query": "TBD"},
+  {"id": "q20", "query": "TBD"}, {"id": "q21", "query": "TBD"}, {"id": "q22", "query": "TBD"},
+  {"id": "q23", "query": "TBD"}, {"id": "q24", "query": "TBD"}, {"id": "q25", "query": "TBD"}
+]

@@ -1,0 +1,6 @@
+-r requirements.txt
+pytest>=8.0
+ruff>=0.4
+jupyter>=1.0
+matplotlib>=3.8
+ir-measures>=0.3       # cross-check our own evaluation metrics

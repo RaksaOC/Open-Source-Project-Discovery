@@ -1,0 +1,30 @@
+# Runtime dependencies. Python 3.10+.
+
+# --- data collection (GitHub REST API) ---
+requests>=2.31
+tenacity>=8.2          # retries and back-off on rate limits
+python-dotenv>=1.0     # reads GITHUB_TOKEN from .env
+pyyaml>=6.0            # config/config.yaml
+tqdm>=4.66
+
+# --- storage ---
+pandas>=2.1
+pyarrow>=14.0          # parquet files in data/processed
+
+# --- README cleaning and text preprocessing ---
+markdown>=3.5
+beautifulsoup4>=4.12
+nltk>=3.8              # stop words, lemmatization
+
+# --- ranking ---
+numpy>=1.26
+scikit-learn>=1.3      # TF-IDF, cosine similarity
+rank-bm25>=0.2.2       # BM25 baseline (we also write our own for comparison)
+sentence-transformers>=2.6   # embeddings for semantic search
+faiss-cpu>=1.7.4       # vector index for the embeddings
+
+# --- popularity and graph ---
+networkx>=3.2          # repository graph, PageRank, HITS
+
+# --- interface ---
+streamlit>=1.32

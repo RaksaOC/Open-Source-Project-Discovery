@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+build/
+dist/
+
+# Environments and secrets
+.venv/
+venv/
+.env
+
+# Data and models (too big for git, rebuilt by the pipeline)
+data/raw/*
+data/processed/*
+data/index/*
+!data/**/.gitkeep
+models/
+*.faiss
+*.npy
+*.parquet
+
+# OS / editors
+.DS_Store
+.vscode/
+.idea/
