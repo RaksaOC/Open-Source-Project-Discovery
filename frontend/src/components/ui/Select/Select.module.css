@@ -1,0 +1,90 @@
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 12px 0 14px;
+  border-radius: var(--r-chip);
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 0.9rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.2s var(--ease);
+}
+.trigger:hover,
+.trigger[aria-expanded="true"] {
+  border-color: var(--ink);
+}
+.quiet {
+  height: auto;
+  padding: 2px 4px 2px 6px;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-size: inherit;
+}
+.quiet:hover,
+.quiet[aria-expanded="true"] {
+  color: var(--ink);
+}
+.prefix {
+  color: var(--muted);
+}
+.value {
+  font-weight: 500;
+}
+.chev {
+  color: var(--muted);
+  transition: transform 0.2s var(--ease);
+}
+.chevOpen {
+  transform: rotate(180deg);
+}
+
+.list {
+  position: fixed;
+  z-index: 60;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  max-height: 340px;
+  overflow-y: auto;
+  border-radius: 12px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  box-shadow: var(--pop);
+  outline: none;
+}
+.option {
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr);
+  gap: 8px;
+  align-items: start;
+  padding: 9px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+.active {
+  background: var(--card);
+}
+.disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.check {
+  color: var(--accent-text);
+  font-weight: 700;
+  line-height: 1.4;
+}
+.optText {
+  display: grid;
+  gap: 2px;
+}
+.desc {
+  font-size: 0.78rem;
+  color: var(--muted);
+}

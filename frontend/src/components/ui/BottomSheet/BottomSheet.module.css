@@ -1,0 +1,78 @@
+.scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgba(0, 0, 0, 0.38);
+}
+.sheet {
+  position: fixed;
+  z-index: 41;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
+  width: min(640px, 100%);
+  max-height: min(86dvh, 760px);
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  border-radius: 22px 22px 0 0;
+  box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.25);
+  outline: none;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.head {
+  position: relative;
+  flex: none;
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  padding: 10px 20px 12px;
+  border-bottom: 1px solid var(--faint);
+  cursor: grab;
+  touch-action: none;
+}
+.head:active {
+  cursor: grabbing;
+}
+.handle {
+  width: 40px;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--ctl);
+}
+.title {
+  font-family: var(--f-body);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.close {
+  position: absolute;
+  right: 14px;
+  top: 16px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 0;
+  background: var(--card);
+  color: var(--ink);
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 18px 20px;
+}
+.foot {
+  flex: none;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px 16px;
+  border-top: 1px solid var(--faint);
+}
