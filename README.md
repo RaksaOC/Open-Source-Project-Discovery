@@ -18,47 +18,86 @@ Group 6 project for *Information Web Retrieval Analytics* (lecturer: Mr. Natt KO
 - **Query understanding:** functionality, technologies and complexity are pulled out of a natural-language query.
 - **Popularity re-ranking:** stars, forks and PageRank/HITS on a repository graph (shared contributors, topics, forks, README links), plus "related projects".
 - **Evaluation:** 25 labelled queries; P, R, F1, MAP and NDCG for each method.
-- **Interface:** Streamlit search page with method switch and filters.
+- **Interface:** Next.js search page over a FastAPI search API, with method switch and filters. An onboarding tour of the project is already in place.
 
 ## Repository layout
 
 ```
 open-source-IR/
-├── app/streamlit_app.py      search interface
-├── config/
-│   ├── config.yaml           paths, collection slices, ranking weights (TBD values)
-│   └── technologies.yaml     technology names and aliases
-├── data/                     raw / processed / index (not committed, see data/README.md)
+├── backend/                      Python: pipeline, search engine and API
+│   ├── src/discovery/
+│   │   ├── collect/              GitHub API client, corpus crawler
+│   │   ├── preprocess/           README cleaning, tokenizing, technologies, complexity
+│   │   ├── index/                inverted index, Boolean search
+│   │   ├── rank/                 TF-IDF, BM25, embeddings, hybrid, popularity
+│   │   ├── graph/                repository graph, PageRank, HITS
+│   │   ├── query/                query parser
+│   │   ├── evaluation/           metrics, evaluation runner
+│   │   ├── api/                  FastAPI app (/api/search, /api/health) for the frontend
+│   │   ├── models.py             Repository / ParsedQuery / SearchResult
+│   │   ├── search.py             SearchEngine, the single entry point
+│   │   └── cli.py                python -m discovery <command>
+│   ├── config/
+│   │   ├── config.yaml           paths, collection slices, ranking weights (TBD values)
+│   │   └── technologies.yaml     technology names and aliases
+│   ├── data/                     raw / processed / index (not committed, see data/README.md)
+│   ├── eval/                     queries, relevance labels, labelling guide
+│   ├── notebooks/                exploration only
+│   ├── tests/
+│   ├── requirements.txt, requirements-dev.txt, pyproject.toml
+│   └── Dockerfile
+├── frontend/                     Next.js: onboarding tour now, search page next
+│   └── Dockerfile
 ├── docs/
-│   ├── proposal.md           full project proposal (draft)
-│   └── architecture.md       pipeline and module ownership
-├── eval/                     queries, relevance labels, labelling guide
-├── notebooks/                exploration only
-├── src/discovery/
-│   ├── collect/              GitHub API client, corpus crawler
-│   ├── preprocess/           README cleaning, tokenizing, technologies, complexity
-│   ├── index/                inverted index, Boolean search
-│   ├── rank/                 TF-IDF, BM25, embeddings, hybrid, popularity
-│   ├── graph/                repository graph, PageRank, HITS
-│   ├── query/                query parser
-│   ├── evaluation/           metrics, evaluation runner
-│   ├── models.py             Repository / ParsedQuery / SearchResult
-│   ├── search.py             SearchEngine, the single entry point
-│   └── cli.py                python -m discovery <command>
-└── tests/
+│   ├── proposal.md               full project proposal (draft)
+│   └── architecture.md           pipeline and module ownership
+└── docker-compose.yml            backend + frontend, one command
 ```
 
-## Setup
+## Run everything with Docker
 
 ```bash
+docker compose up --build
+```
+
+- Frontend: http://localhost:3300
+- API docs: http://localhost:8100/docs
+
+`backend/data/` is mounted into the backend container, so indexes built by the pipeline are picked up.
+Put the GitHub token in `backend/.env` (see `backend/.env.example`). Stop with `docker compose down`.
+
+## Backend setup (local)
+
+All Python commands run from `backend/`.
+
+```bash
+cd backend
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements-dev.txt
 pip install -e .
 cp .env.example .env        # then paste a GitHub token into GITHUB_TOKEN
-pytest                      # smoke tests: every module imports
+pytest                      # smoke tests: every module imports, API answers
+uvicorn discovery.api.app:app --reload --port 8100
 ```
 
-## Pipeline (planned commands)
+Unbuilt parts raise `NotImplementedError`; the API returns that as **501** so the frontend can
+show "not built yet".
+
+## Frontend setup (local)
+
+Needs Node 22+. Proxies `/api/*` to the backend (`API_URL`, default `http://127.0.0.1:8100`).
+
+```bash
+cd frontend
+npm install
+npm run dev                 # http://localhost:3300
+```
+
+Tour copy lives in `src/content/steps.ts`, one animated scene per step in `src/components/scenes/`.
+The look (Deep Lab, from the study hub) is set internally in `src/theme/config.ts`, one CSS file
+per look in `src/theme/`; there is no theme picker in the UI.
+
+## Pipeline (planned commands, from `backend/`)
 
 ```bash
 python -m discovery collect      # GitHub API -> data/raw
@@ -67,7 +106,6 @@ python -m discovery index        # inverted index, TF-IDF, BM25, embeddings, gra
 python -m discovery search "beginner inventory system nestjs postgres" --method hybrid
 python -m discovery pool         # labelling pool for evaluation
 python -m discovery evaluate     # metric table
-streamlit run app/streamlit_app.py
 ```
 
 ## Team

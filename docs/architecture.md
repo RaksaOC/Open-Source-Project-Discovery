@@ -18,6 +18,8 @@ user query
 
 ## Module map
 
+Paths are under `backend/src/`.
+
 | Step | Module | Owner (draft) |
 |---|---|---|
 | Collect | `discovery/collect/github_client.py`, `crawler.py` | Rith |
@@ -27,7 +29,8 @@ user query
 | Semantic | `discovery/rank/embeddings.py`, `hybrid.py`, `discovery/query/parser.py` | Keo |
 | Popularity and graph | `discovery/rank/popularity.py`, `discovery/graph/` | Rith, Man |
 | Facade | `discovery/search.py` (`SearchEngine.search`) | Ory |
-| Interface | `app/streamlit_app.py` | Ory |
+| API | `discovery/api/` (FastAPI: `/api/search`, `/api/health`) | Ory |
+| Interface | `frontend/` (Next.js) | Ory |
 | Evaluation | `discovery/evaluation/`, `eval/` | Sao |
 
 ## Interfaces to agree on early

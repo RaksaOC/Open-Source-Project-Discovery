@@ -1,0 +1,70 @@
+/* Base styles shared by every look. Colours, fonts and radii come from the active theme
+   in src/theme/<look>.css, picked by data-look on <html> (see src/theme/config.ts). */
+@import "../theme/deep-lab.css";
+
+:root {
+  --h3: clamp(1.3rem, 2.4vw, 1.6rem);
+  --r-code: 5px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--body);
+  font-family: var(--f-body);
+  font-size: var(--fs);
+  line-height: var(--lh);
+  letter-spacing: var(--track);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s var(--ease), color 0.3s var(--ease);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--f-display);
+  color: var(--ink);
+  font-weight: var(--dw);
+  letter-spacing: var(--d-track);
+  line-height: 1.06;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+code,
+.mono {
+  font-family: var(--f-mono);
+  font-size: 0.88em;
+  letter-spacing: 0;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+::selection {
+  background: var(--accent-soft);
+}

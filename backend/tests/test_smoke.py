@@ -28,6 +28,7 @@ MODULES = [
     "discovery.query.parser",
     "discovery.evaluation.metrics",
     "discovery.evaluation.runner",
+    "discovery.api.app",
 ]
 
 

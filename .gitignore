@@ -14,10 +14,10 @@ venv/
 .env
 
 # Data and models (too big for git, rebuilt by the pipeline)
-data/raw/*
-data/processed/*
-data/index/*
-!data/**/.gitkeep
+backend/data/raw/*
+backend/data/processed/*
+backend/data/index/*
+!backend/data/**/.gitkeep
 models/
 *.faiss
 *.npy
@@ -27,3 +27,8 @@ models/
 .DS_Store
 .vscode/
 .idea/
+
+# Frontend
+node_modules/
+.next/
+*.tsbuildinfo

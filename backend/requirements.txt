@@ -26,5 +26,6 @@ faiss-cpu>=1.7.4       # vector index for the embeddings
 # --- popularity and graph ---
 networkx>=3.2          # repository graph, PageRank, HITS
 
-# --- interface ---
-streamlit>=1.32
+# --- API (served to the Next.js frontend) ---
+fastapi>=0.115
+uvicorn[standard]>=0.32

@@ -1,0 +1,26 @@
+# docker compose up --build    →  frontend on :3300, API on :8100 (docs at /docs)
+name: discovery-engine
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8100:8000"
+    env_file:
+      - path: ./backend/.env
+        required: false
+    volumes:
+      - ./backend/data:/app/data # corpus and indexes built by the pipeline
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        API_URL: http://backend:8000
+    ports:
+      - "3300:3000"
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
