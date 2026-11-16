@@ -1,0 +1,94 @@
+/* Small shared building blocks. Import with `import ui from "@/components/ui/primitives.module.css"`. */
+
+.label {
+  font-family: var(--f-label);
+  text-transform: var(--label-tt);
+  letter-spacing: var(--label-track);
+  font-size: calc(0.82rem * var(--label-scale));
+  font-weight: 500;
+  color: var(--muted);
+}
+.muted {
+  color: var(--muted);
+}
+.small {
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px;
+  border-radius: var(--r-chip);
+  background: var(--surface-2);
+  color: var(--body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.chipHit {
+  background: var(--accent-soft);
+  color: var(--accent-text);
+}
+.chipOutline {
+  background: transparent;
+  border: 1px solid var(--line);
+  text-transform: capitalize;
+}
+.chipOutline.chipHit {
+  border-color: var(--accent-mid);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 18px;
+  border-radius: var(--r-pill);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: transform 0.15s var(--ease), border-color 0.2s, opacity 0.2s;
+}
+.btn:active {
+  transform: scale(0.97);
+}
+.primary {
+  border: 0;
+  background: var(--btn-bg);
+  color: var(--btn-ink);
+}
+.ghost {
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--ink);
+  font-weight: 500;
+}
+.ghost:hover {
+  border-color: var(--ink);
+}
+.btn[aria-disabled="true"],
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.textBtn {
+  border: 0;
+  background: none;
+  padding: 4px 2px;
+  cursor: pointer;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--accent-text);
+}
