@@ -1,0 +1,86 @@
+.box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  height: 50px;
+  padding: 0 6px 0 20px;
+  border-radius: var(--r-pill);
+  background: var(--bg);
+  border: 1.5px solid var(--line);
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.box:focus-within {
+  border-color: var(--ink);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+.large {
+  height: 64px;
+  padding-left: 24px;
+  box-shadow: var(--pop);
+}
+.input {
+  flex: 1;
+  width: 0;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem;
+  outline: none;
+}
+.large .input {
+  font-size: 1.12rem;
+}
+.input::placeholder {
+  color: var(--ctl);
+}
+.box :focus-visible {
+  outline: none;
+}
+.clear {
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 4px;
+}
+.submit {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--btn-bg);
+  color: var(--btn-ink);
+  cursor: pointer;
+  transition: transform 0.15s var(--ease), background-color 0.2s var(--ease), color 0.2s var(--ease);
+}
+.submit:hover {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+.submit:active {
+  transform: scale(0.94);
+}
+.large .submit {
+  width: 50px;
+  height: 50px;
+}
+
+@media (max-width: 720px) {
+  .large {
+    height: 56px;
+    padding-left: 18px;
+  }
+  .large .submit {
+    width: 44px;
+    height: 44px;
+  }
+}

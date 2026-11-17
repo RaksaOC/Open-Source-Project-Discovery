@@ -1,0 +1,80 @@
+.steps {
+  display: grid;
+  gap: 6px;
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+  font-size: 0.88rem;
+  color: var(--body);
+}
+.steps li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.icon {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line);
+  font-size: 0.7rem;
+  color: var(--bg);
+}
+.done {
+  background: var(--ok);
+  border-color: var(--ok);
+}
+.spin {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-soft);
+  border-top-color: var(--accent);
+  animation: spin 0.7s linear infinite;
+}
+.cards {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.card {
+  display: grid;
+  gap: 10px;
+  padding: 18px 20px;
+  border-radius: var(--r-card);
+  background: var(--card);
+}
+.card > span:not(.chips),
+.chips i {
+  display: block;
+  height: 12px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--surface-2) 0%, var(--faint) 30%, var(--line) 50%, var(--faint) 70%, var(--surface-2) 100%);
+  background-size: 300% 100%;
+  animation: shimmer 1.4s linear infinite;
+}
+.chips {
+  display: flex;
+  gap: 6px;
+}
+.chips i {
+  width: 70px;
+  height: 22px;
+}
+@keyframes shimmer {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
