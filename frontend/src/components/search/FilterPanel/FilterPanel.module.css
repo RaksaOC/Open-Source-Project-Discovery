@@ -1,0 +1,26 @@
+.section {
+  display: grid;
+  gap: 10px;
+  padding-bottom: 18px;
+}
+.section + .section {
+  padding-top: 16px;
+  border-top: 1px solid var(--faint);
+}
+.section h3 {
+  margin: 0;
+}
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.options > [role="radiogroup"] {
+  flex: 1;
+  max-width: 360px;
+}
+
+.sort {
+  width: 100%;
+  justify-content: space-between;
+}
