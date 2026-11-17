@@ -1,0 +1,184 @@
+.card {
+  position: relative;
+  display: grid;
+  gap: 12px;
+  padding: 18px 20px;
+  border-radius: var(--r-card);
+  border: 1px solid transparent;
+  background: var(--card);
+  cursor: pointer;
+  transition: border-color 0.2s var(--ease);
+}
+.card:hover {
+  border-color: var(--ctl);
+}
+.top {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: start;
+}
+.rank {
+  min-width: 1.4em;
+  padding-top: 4px;
+  font-family: var(--f-mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.title {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+.name {
+  justify-self: start;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  font-family: var(--f-display);
+  font-size: 1.18rem;
+  font-weight: 500;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+/* stretch the button over the card */
+.name::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--r-card);
+}
+.name:focus-visible {
+  outline: none;
+}
+.name:focus-visible::after {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+/* underline that grows from the left when the card is hovered or focused */
+.repo {
+  padding-bottom: 2px;
+  background: linear-gradient(var(--accent), var(--accent)) left bottom / 0% 2px no-repeat;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  transition: background-size 0.35s var(--ease);
+}
+.card:hover .repo,
+.name:focus-visible .repo {
+  background-size: 100% 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .repo {
+    transition: none;
+  }
+}
+.owner {
+  font-weight: 400;
+  color: var(--muted);
+}
+.desc {
+  font-size: 0.95rem;
+  color: var(--body);
+}
+.snippet {
+  padding-left: 12px;
+  border-left: 2px solid var(--line);
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+.snippet mark {
+  padding: 0 2px;
+  border-radius: 3px;
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.lang {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 2px;
+  border-radius: 50%;
+  background: var(--ctl);
+}
+.lang[data-lang="TypeScript"] {
+  background: #3178c6;
+}
+.lang[data-lang="JavaScript"] {
+  background: #e8d44d;
+}
+.lang[data-lang="Python"] {
+  background: #3572a5;
+}
+.lang[data-lang="Java"] {
+  background: #b07219;
+}
+.lang[data-lang="PHP"] {
+  background: #4f5d95;
+}
+.lang[data-lang="Go"] {
+  background: #00add8;
+}
+.lang[data-lang="Dart"] {
+  background: #00b4ab;
+}
+.ring {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+}
+.ring svg {
+  width: 100%;
+  height: 100%;
+}
+.ring b {
+  position: absolute;
+  font-family: var(--f-mono);
+  font-size: 0.78rem;
+  color: var(--ink);
+}
+
+@media (max-width: 560px) {
+  .card {
+    gap: 10px;
+    padding: 14px 16px;
+  }
+  .top {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px;
+  }
+  .rank {
+    display: none;
+  }
+  .name {
+    font-size: 1.05rem;
+  }
+  .owner {
+    display: block;
+    font-size: 0.85rem;
+  }
+  .desc {
+    font-size: 0.9rem;
+  }
+  .ring {
+    width: 38px;
+    height: 38px;
+  }
+  .ring b {
+    font-size: 0.72rem;
+  }
+  .wide {
+    display: none;
+  }
+}

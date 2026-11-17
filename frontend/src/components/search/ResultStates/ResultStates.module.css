@@ -1,0 +1,23 @@
+.box {
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+  padding: 28px;
+  border-radius: var(--r-card);
+  border: 1.5px dashed var(--line);
+  color: var(--body);
+}
+.box b {
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+.box p {
+  max-width: 40rem;
+  color: var(--muted);
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
