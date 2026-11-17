@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import styles from "./ui.module.css";
+import styles from "./ThemeToggle.module.css";
 
 type Theme = "light" | "dark";
 

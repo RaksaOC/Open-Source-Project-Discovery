@@ -2,7 +2,7 @@
 
 import { cx } from "@/lib/cx";
 import { useHealth } from "@/lib/useHealth";
-import styles from "./ui.module.css";
+import styles from "./ApiStatus.module.css";
 
 export function ApiStatus() {
   const health = useHealth();
