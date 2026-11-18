@@ -68,3 +68,10 @@ button {
 ::selection {
   background: var(--accent-soft);
 }
+
+/* faint dot grid behind every page (same in all three projects) */
+body {
+  background-image: radial-gradient(color-mix(in srgb, var(--ink) 11%, transparent) 1px, transparent 1.3px);
+  background-size: 22px 22px;
+  background-attachment: fixed;
+}
