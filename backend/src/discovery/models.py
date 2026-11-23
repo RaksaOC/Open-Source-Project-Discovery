@@ -24,7 +24,8 @@ class Repository:
     license: str = "not specified"
     created_at: str = ""
     pushed_at: str = ""                 # last activity
-    contributors: list[str] = field(default_factory=list)
+    contributors: list[str] = field(default_factory=list)   # logins, bots removed
+    found_by: list[str] = field(default_factory=list)       # search pieces that found it (config/slices.csv)
 
 
 @dataclass
