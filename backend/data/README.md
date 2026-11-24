@@ -2,6 +2,9 @@
 
 Nothing in here is committed (see `.gitignore`). Run the pipeline to rebuild it.
 
+**Teammates:** don't rebuild it. Unzip the shared zips here (`ir_data_processed_<date>.zip` → `processed/`,
+`ir_data_raw_<date>.zip` → `raw/`); see `docs/handoff-methods.md`. The zips themselves are git-ignored too.
+
 | Folder | Made by | Contents |
 |---|---|---|
 | `raw/` | `python -m discovery collect` | GitHub API responses, one JSON object per repository (`repos.jsonl`) |

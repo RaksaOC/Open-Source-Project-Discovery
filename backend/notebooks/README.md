@@ -6,6 +6,14 @@ Once a step works, move it into `src/discovery/` so `python -m discovery <comman
 **Name:** `NN-topic.ipynb`, for example `01-api.ipynb`, `02-clean.ipynb`, `03-bm25.ipynb`.
 Copy `00-template.ipynb` to start a new one.
 
+## The notebooks
+
+| Notebook | Phase | Status |
+|---|---|---|
+| `01-api` · `02-slices` · `03-collect` · `04-clean` · `05-eda` | 1–5 | done, together |
+| `07-boolean` · `08-tfidf` · `09-bm25` · `10-1-semantic` · `10-2-hybrid` | 7–10 | one per member, on `dev-<method>` (see `docs/handoff-methods.md`) |
+| `11-…` onwards | 11–16 | integration, on `main` |
+
 ## Where things go
 
 | Where | What goes there |

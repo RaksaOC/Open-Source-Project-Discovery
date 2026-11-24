@@ -18,6 +18,8 @@ backend/data/raw/*
 backend/data/processed/*
 backend/data/index/*
 !backend/data/**/.gitkeep
+# data is shared as zips (docs/handoff-methods.md), never committed
+backend/data/*.zip
 models/
 *.faiss
 *.npy
