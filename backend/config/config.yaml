@@ -70,6 +70,12 @@ preprocessing:
   english_min_stopword_share: 0.05   # below this share of English stop words, a README is not English
   english_min_words: 30         # shorter texts are always kept ("A POS app." fails any stop-word test)
   keep_terms: technologies.yaml # tech names are never stemmed or split ("node.js", "c#")
+  # README boilerplate found in the EDA (Phase 5, section 4): in a large share of repositories, whatever
+  # they do. Technology and domain words stay, even when common ("api", "react", "management").
+  extra_stopwords: [use, using, used, install, installation, installing, run, running, clone, npm, yarn,
+                    pip, git, github, readme, license, licensed, contributing, contribute, contribution,
+                    please, step, steps, getting, started, prerequisite, prerequisites, repository, repo,
+                    http, https, www, com, md, etc, also, via, see, get, make, need, want]
 
 ranking:
   default_method: bm25          # boolean | tfidf | bm25 | embedding | hybrid
