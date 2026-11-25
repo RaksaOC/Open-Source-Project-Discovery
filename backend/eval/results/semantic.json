@@ -1,0 +1,32 @@
+{
+  "method": "semantic",
+  "params": {
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "text": "name + description + topics + README",
+    "max_chars_per_chunk": 1000,
+    "readme_chunks": 1,
+    "tokenizer": "discovery.preprocess.text.tokenize"
+  },
+  "metrics": {
+    "P@5": null,
+    "P@10": null,
+    "R@10": null,
+    "F1@10": null,
+    "MAP": null,
+    "NDCG@10": null
+  },
+  "groups": {
+    "paraphrased": {
+      "NDCG@10": null
+    },
+    "technology": {
+      "NDCG@10": null
+    }
+  },
+  "speed": {
+    "build_s": 243.34,
+    "query_ms_median": 8.64,
+    "index_mb": 12.6
+  },
+  "per_query": []
+}
