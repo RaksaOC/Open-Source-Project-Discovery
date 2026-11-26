@@ -1,0 +1,36 @@
+{
+  "method": "tfidf",
+  "params": {
+    "tf": "raw",
+    "idf": "smooth",
+    "min_df": 1,
+    "field_weights": {
+      "name": 1,
+      "description": 1,
+      "topics": 1,
+      "readme": 1
+    }
+  },
+  "metrics": {
+    "P@5": null,
+    "P@10": null,
+    "R@10": null,
+    "F1@10": null,
+    "MAP": null,
+    "NDCG@10": null
+  },
+  "groups": {
+    "paraphrased": {
+      "NDCG@10": null
+    },
+    "technology": {
+      "NDCG@10": null
+    }
+  },
+  "speed": {
+    "build_s": 10.97,
+    "query_ms_median": 0.51,
+    "index_mb": 35.1
+  },
+  "per_query": []
+}
