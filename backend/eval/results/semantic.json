@@ -35,6 +35,7 @@
     "label_source": "GitHub collection slices using the BM25 notebook grading rule",
     "binary_relevance": "Grade 1 or 2",
     "recall_and_ap_denominator": "All silver relevant repositories for each query",
+    "mean_recall_at_10_ceiling": 0.019611,
     "metrics": {
       "P@5": 1.0,
       "P@10": 0.96,
