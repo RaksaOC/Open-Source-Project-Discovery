@@ -1,0 +1,34 @@
+{
+  "method": "boolean",
+  "params": {
+    "operator": "AND, then OR",
+    "fields": [
+      "name",
+      "description",
+      "topics",
+      "readme"
+    ]
+  },
+  "metrics": {
+    "P@5": null,
+    "P@10": null,
+    "R@10": null,
+    "F1@10": null,
+    "MAP": null,
+    "NDCG@10": null
+  },
+  "groups": {
+    "paraphrased": {
+      "NDCG@10": null
+    },
+    "technology": {
+      "NDCG@10": null
+    }
+  },
+  "speed": {
+    "build_s": 18.2,
+    "query_ms_median": 0.24,
+    "index_mb": 33.8
+  },
+  "per_query": []
+}
