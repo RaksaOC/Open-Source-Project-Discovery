@@ -28,5 +28,88 @@
     "query_ms_median": 8.64,
     "index_mb": 12.6
   },
-  "per_query": []
+  "per_query": [],
+  "preliminary": {
+    "split": "development",
+    "query_count": 5,
+    "label_source": "GitHub collection slices using the BM25 notebook grading rule",
+    "binary_relevance": "Grade 1 or 2",
+    "recall_and_ap_denominator": "All silver relevant repositories for each query",
+    "mean_recall_at_10_ceiling": 0.019611,
+    "metrics": {
+      "P@5": 1.0,
+      "P@10": 0.96,
+      "R@10": 0.018874,
+      "F1@10": 0.03695,
+      "MAP@10": 0.0188,
+      "NDCG@10": 0.879186
+    },
+    "groups": {
+      "paraphrased": {
+        "NDCG@10": null,
+        "query_count": 0
+      },
+      "technology": {
+        "NDCG@10": 0.879186,
+        "query_count": 5
+      }
+    },
+    "per_query": [
+      {
+        "query": "beginner inventory management system nestjs postgresql",
+        "silver_relevant": 712,
+        "silver_grade_2": 42,
+        "P@5": 1.0,
+        "P@10": 0.9,
+        "R@10": 0.01264,
+        "F1@10": 0.024931,
+        "AP@10": 0.0125,
+        "NDCG@10": 0.765185
+      },
+      {
+        "query": "point of sale app with react",
+        "silver_relevant": 438,
+        "silver_grade_2": 80,
+        "P@5": 1.0,
+        "P@10": 0.9,
+        "R@10": 0.020548,
+        "F1@10": 0.040179,
+        "AP@10": 0.02032,
+        "NDCG@10": 0.723826
+      },
+      {
+        "query": "school management system laravel",
+        "silver_relevant": 334,
+        "silver_grade_2": 84,
+        "P@5": 1.0,
+        "P@10": 1.0,
+        "R@10": 0.02994,
+        "F1@10": 0.05814,
+        "AP@10": 0.02994,
+        "NDCG@10": 1.0
+      },
+      {
+        "query": "hotel booking system spring boot",
+        "silver_relevant": 559,
+        "silver_grade_2": 80,
+        "P@5": 1.0,
+        "P@10": 1.0,
+        "R@10": 0.017889,
+        "F1@10": 0.035149,
+        "AP@10": 0.017889,
+        "NDCG@10": 1.0
+      },
+      {
+        "query": "simple chat application flutter firebase",
+        "silver_relevant": 749,
+        "silver_grade_2": 82,
+        "P@5": 1.0,
+        "P@10": 1.0,
+        "R@10": 0.013351,
+        "F1@10": 0.02635,
+        "AP@10": 0.013351,
+        "NDCG@10": 0.906921
+      }
+    ]
+  }
 }
