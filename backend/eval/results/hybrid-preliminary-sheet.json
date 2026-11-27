@@ -1,0 +1,124 @@
+{
+  "method": "hybrid",
+  "params": {
+    "mode": "weighted",
+    "alpha": 0.4,
+    "depth": 50,
+    "lexical": "bm25 k1=1.5 b=0.75",
+    "semantic": "all-MiniLM-L6-v2",
+    "labels": "PRELIMINARY silver, 9 drafted queries"
+  },
+  "metrics": {
+    "P@5": 0.8889,
+    "P@10": 0.8444,
+    "R@10": 0.3816,
+    "F1@10": 0.5185,
+    "MAP": 0.3519,
+    "NDCG@10": 0.7981
+  },
+  "groups": {
+    "paraphrased": {
+      "NDCG@10": null
+    },
+    "technology": {
+      "NDCG@10": 0.7823
+    }
+  },
+  "speed": {
+    "build_s": 278.0,
+    "query_ms_median": 10.83,
+    "index_mb": 129.4
+  },
+  "per_query": [
+    {
+      "qid": "q01",
+      "query": "Find a beginner-friendly inventory management system using NestJS and PostgreSQL",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "R@10": 0.4,
+      "F1@10": 0.5714,
+      "MAP": 0.4,
+      "NDCG@10": 0.9095
+    },
+    {
+      "qid": "q02",
+      "query": "simple point of sale app for a small shop with React and Express",
+      "P@5": 1.0,
+      "P@10": 0.6,
+      "R@10": 0.2727,
+      "F1@10": 0.375,
+      "MAP": 0.2614,
+      "NDCG@10": 0.5716
+    },
+    {
+      "qid": "q03",
+      "query": "school management system with student attendance and grades in Laravel",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "R@10": 0.3846,
+      "F1@10": 0.5556,
+      "MAP": 0.3846,
+      "NDCG@10": 0.9576
+    },
+    {
+      "qid": "q04",
+      "query": "real-time chat application using Socket.IO and MongoDB",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "R@10": 0.3704,
+      "F1@10": 0.5405,
+      "MAP": 0.3704,
+      "NDCG@10": 1.0
+    },
+    {
+      "qid": "q05",
+      "query": "e-commerce backend with payments and an admin dashboard in Django",
+      "P@5": 0.6,
+      "P@10": 0.7,
+      "R@10": 0.3684,
+      "F1@10": 0.4828,
+      "MAP": 0.2683,
+      "NDCG@10": 0.5843
+    },
+    {
+      "qid": "q06",
+      "query": "hotel or room booking system built with Spring Boot and MySQL",
+      "P@5": 1.0,
+      "P@10": 1.0,
+      "R@10": 0.3704,
+      "F1@10": 0.5405,
+      "MAP": 0.3704,
+      "NDCG@10": 0.9432
+    },
+    {
+      "qid": "q07",
+      "query": "personal blog starter with Markdown posts using Next.js",
+      "P@5": 1.0,
+      "P@10": 0.8,
+      "R@10": 0.5714,
+      "F1@10": 0.6667,
+      "MAP": 0.5444,
+      "NDCG@10": 0.7948
+    },
+    {
+      "qid": "q08",
+      "query": "hospital management system for patients and appointments",
+      "P@5": 0.6,
+      "P@10": 0.7,
+      "R@10": 0.2258,
+      "F1@10": 0.3415,
+      "MAP": 0.1666,
+      "NDCG@10": 0.7066
+    },
+    {
+      "qid": "q10",
+      "query": "library management system for a student project in Java",
+      "P@5": 0.8,
+      "P@10": 0.8,
+      "R@10": 0.4706,
+      "F1@10": 0.5926,
+      "MAP": 0.4011,
+      "NDCG@10": 0.7149
+    }
+  ]
+}
